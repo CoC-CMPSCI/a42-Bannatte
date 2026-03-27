@@ -9,29 +9,39 @@ int main()
     const double RATE10 = 3.70;
     const double RATE20 = 4.80;
 
-    double weight, distance, rate, price;
+    double weight, distance, dRate, price;
 
-    // Read input directly, no extra prompts
+    cout << "Enter the package weight and distance\n";
     cin >> weight >> distance;
 
-    // Validate input ranges
-    if (weight <= 0 || weight > 20) return 1;    // exit on invalid weight
-    if (distance < 10 || distance > 3000) return 1; // exit on invalid distance
+    if (weight <= 0 || weight > 20) 
+    {
+        cout << "Invalid weight" << endl;
+        return 0;
+    }
 
-    // Determine rate
-    if (weight <= 2) rate = RATE2;
-    else if (weight <= 6) rate = RATE6;
-    else if (weight <= 10) rate = RATE10;
-    else rate = RATE20;
+    if (distance < 10 || distance > 3000) 
+    {
+        cout << "Invalid distance" << endl;
+        return 0;
+    }
 
-    // Calculate shipping price
-    if (distance > 500)
-        price = (distance / 500.0) * rate;
-    else
-        price = rate;
+    if (weight <= 2) {
+        dRate = RATE2;
+    } else if (weight <= 6) {
+        dRate = RATE6;
+    } else if (weight <= 10) {
+        dRate = RATE10;
+    } else { 
+        dRate = RATE20;
 
-    // Print output in correct format
-    cout << fixed << setprecision(2);
+    if (distance > 500) {
+        price = (distance / 500.0) * dRate;
+    } else {
+        price = dRate;
+    }
+
+    cout << setprecision(2) << fixed;
     cout << "The shipping price for package is " << price << endl;
 
     return 0;
