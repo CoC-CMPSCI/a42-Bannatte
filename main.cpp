@@ -34,6 +34,7 @@ int main()
         dRate = RATE10;
     } else { 
         dRate = RATE20;
+    }
 
     if (distance > 500) {
         price = (distance / 500.0) * dRate;
