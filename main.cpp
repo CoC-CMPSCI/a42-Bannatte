@@ -23,19 +23,21 @@ int main()
         return 1;
     }
 
-    if (weight <= 2)
+    if (weight <= 2) {
         dRate = RATE2;
-    else if (weight <= 6)
+    } else if (weight <= 6) {
         dRate = RATE6;
-    else if (weight <= 10)
+    } else if (weight <= 10) {
         dRate = RATE10;
-    else
+    } else {
         dRate = RATE20;
+    }
 
-    if (distance > 500)
+    if (distance > 500) {
         price = (distance / 500.0) * dRate;
-    else
+    } else {
         price = dRate;
+    }
 
     cout << setprecision(2) << fixed;
     cout << "The shipping price for package is " << price << endl;
